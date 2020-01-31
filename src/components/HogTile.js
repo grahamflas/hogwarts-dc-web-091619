@@ -8,18 +8,18 @@ class HogTile extends React.Component{
 
   getImage = name => {
     let formattedName = name
-      .replace(/\s/gi,"_")
-      .toLowerCase();
+                        .replace(/\s/gi,"_")
+                        .toLowerCase();
     let pigPic = require(`../hog-imgs/${formattedName}.jpg`);
     return pigPic;
   }
 
-  handleClick = () =>{
+  handleInfoClick = () =>{
     this.setState( {clicked: !this.state.clicked} )
   }
 
   render(){
-    const {name, specialty} = this.props.hog
+    const {hog: {name, specialty}, handleBanishClick} = this.props
     return(
       <div className="ui card eight wide column">
         <div>
@@ -34,9 +34,10 @@ class HogTile extends React.Component{
           this.state.clicked ? <HogDetail hog={this.props.hog}/> : null
         }
        </div>
-       <button className="ui button" onClick={this.handleClick}>
+       <button className="ui button" onClick={this.handleInfoClick}>
          {this.state.clicked ? "Less Info" : "More Info"}
        </button>
+       <button className="ui button" onClick={() => handleBanishClick(this.props.hog)}>Banish Me</button>
       </div>
     )
   }
