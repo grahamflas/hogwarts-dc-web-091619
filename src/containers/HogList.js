@@ -7,6 +7,7 @@ const HogList = ({hogs}) => {
       {
         hogs.map(hog => (
           <HogTile 
+            key={hog.name}
             hog={hog}
           />
         ))
@@ -15,4 +16,4 @@ const HogList = ({hogs}) => {
   )
 }
 
-export default HogListgit 
+export default HogList

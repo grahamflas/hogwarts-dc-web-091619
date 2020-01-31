@@ -1,4 +1,5 @@
 import React from 'react';
+import HogDetail from './HogDetail';
 
 class HogTile extends React.Component{
   state = {
@@ -11,6 +12,10 @@ class HogTile extends React.Component{
       .toLowerCase();
     let pigPic = require(`../hog-imgs/${formattedName}.jpg`);
     return pigPic;
+  }
+
+  handleClick = () =>{
+    this.setState( {clicked: !this.state.clicked} )
   }
 
   render(){
@@ -26,10 +31,10 @@ class HogTile extends React.Component{
        </div>
        <div className="extra-content">
         {
-          this.state.clicked ? "I was clicked" : null
+          this.state.clicked ? <HogDetail hog={this.props.hog}/> : null
         }
        </div>
-       <button className="ui button">
+       <button className="ui button" onClick={this.handleClick}>
          {this.state.clicked ? "Less Info" : "More Info"}
        </button>
       </div>
