@@ -3,7 +3,7 @@ import HogTile from '../components/HogTile'
 
 const HogList = ({hogs, handleBanishClick}) => {
   return(
-    <div className="ui three stackable cards">
+    <div className="ui four cards">
       {
         hogs.map(hog => (
           <HogTile 
