@@ -19,7 +19,7 @@ class HogTile extends React.Component{
   }
 
   render(){
-    const {hog: {name, specialty}, handleBanishClick} = this.props
+    const {hog: {name, greased}, handleBanishClick} = this.props
     return(
       <div className="ui card eight wide column">
         <div>
@@ -27,7 +27,7 @@ class HogTile extends React.Component{
         </div>
        <div className="content">
          <h3 className="header">{name}</h3>
-         <div className="description">Specialty: {specialty}</div>
+         <p>{greased ? "Greased" : "Un-greased"}</p>
        </div>
        <div className="extra-content">
         {
